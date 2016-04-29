@@ -34,32 +34,32 @@ public class Driver
 			//call mergesort on right
 			Driver.mergeSortHelper(ar,rightBegin, rightEnd);
 			//do merge step
-			int[] temp = new int[rightEnd - leftBegin +1];
+			int[] tempAr = new int[rightEnd - leftBegin +1];
 			int left = leftBegin;
 			int right = rightBegin;
 			
-			for(int  tempPos = 0; tempPos < temp.length; tempPos++)
+			for(int  i = 0; i < tempAr.length; i++)
 			{
 				if(left > leftEnd)
 				{
-					temp[tempPos] = ar[right];
+					tempAr[i] = ar[right];
 					right++;
 				}
 				else if(right > rightEnd)
 				{
-					temp[tempPos] = ar[left];
+					tempAr[i] = ar[left];
 					left++;
 				}
 				else
 				{
 					if (ar[left] < ar[right])
 					{
-						temp[tempPos] = ar[left];
+						tempAr[i] = ar[left];
 						left++;
 					}
 					else
 					{
-						temp[tempPos] = ar[right];
+						tempAr[i] = ar[right];
 						right++;
 					}
 				}
@@ -67,7 +67,7 @@ public class Driver
 			int tempPos = 0; 
 			for(int i = leftBegin; i <= rightEnd; i++)
 			{
-				ar[i] = temp[tempPos];
+				ar[i] = tempAr[tempPos];
 				tempPos++;
 			}
 		}
